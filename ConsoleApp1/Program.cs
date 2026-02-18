@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 
-Console.WriteLine("Hello, World!");
 namespace Calculadora
 {
 	internal class program
@@ -12,28 +11,27 @@ namespace Calculadora
 			//1 MODULO
 			//solicita primero un numero
 			Console.Write("Ingresa un Numero");
+			double num1;
 
 			//verificacion si el numero ingresado es valido
+			double.TryParse(Console.ReadLine(), out num1);
 
-			//Nota: se pued hacer uso de double.TryParse ForegroundColor
-
-
+			
 			//solicita el segundo numero
 			Console.Write("Ingresa otro Numero");
-
+			double num2;
 			//verificacion si el numero ingresado es valido
-
+			double.TryParse(Console.ReadLine(), out num2);
 
 			//Pregunta si 
-			Console.Write("Desea ingresar mas Numeros ?");
-
+			//Console.Write("Desea ingresar mas Numeros ?");
 			//condicional en caso que el usuario desee ingresar mas numeros 
 
 			//2 MODULO
 			//Seleccionar que  tipo de operacion desea realizar 
 			Console.WriteLine("\nSeleccione la Operación (+, -, *, /):");
-			xxxx operacion = Console.ReadLine();
-			yyyy Resultado = 0;
+			string operacion = Console.ReadLine();
+			double Resultado = 0;
 
 
 			//3 MODULO
@@ -42,7 +40,7 @@ namespace Calculadora
 				case "+":
 					Resultado = num1 + num2;
 					break;
-				case "-";
+				case "-":
 					Resultado = num1 - num2;
 					break;
 				case "*":
@@ -54,7 +52,9 @@ namespace Calculadora
 					{
 						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("Error. No existe la Division entre 0");
+						Console.ResetColor();
 						return;
+
 					}
 					else
 						Resultado = num1 / num2;
@@ -63,6 +63,7 @@ namespace Calculadora
 				default:
 					Console.ForegroundColor = ConsoleColor.Yellow;
 					Console.WriteLine("Opcion No Permitida. ");
+					Console.ResetColor();
 					return;
 
 			}
@@ -85,5 +86,5 @@ namespace Calculadora
 
 		}
 	}
-	
+
 }
